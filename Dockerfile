@@ -5,7 +5,7 @@
 # 
 
 # Pull base image 
-FROM ubuntu:16.04.4
+FROM ubuntu:16.04
 
 # Make sure we're up to date! 
 RUN apt-get update && apt-get -y upgrade 
