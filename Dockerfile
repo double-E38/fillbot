@@ -31,4 +31,4 @@ ADD fillbot /app/Fillbot
 EXPOSE 5001
 
 # Define defaults command
-ENTRYPOINT /usr/bin/python3 /opt/Fillbot/Fillbot_rDevelopment.py
+ENTRYPOINT /usr/bin/python3 /opt/fillbot/Fillbot_rDevelopment.py
