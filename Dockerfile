@@ -25,7 +25,7 @@ VOLUME /opt
 VOLUME /var
 
 # Add python scripts
-ADD fillbot /app/Fillbot
+ADD fillbot /opt/fillbot
 
 # Expose ports
 EXPOSE 5001
