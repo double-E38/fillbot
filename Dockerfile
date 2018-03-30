@@ -8,27 +8,28 @@
 FROM ubuntu:16.04
 
 # Make sure we're up to date! 
-RUN apt-get update && apt-get -y upgrade 
+RUN apt-get update && apt-get -y upgrade
 
 # Install Python3 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python3-pip 
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python3-pip
 
 # Install Python packages 
-RUN pip3 install -U bottle==0.12.13 GroupyAPI==0.8.1
+RUN pip install -U bottle==0.12.13 GroupyAPI==0.8.1
 
 # Cleanup for a smaller image 
 RUN apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/*
 
-# Expose volumes
-VOLUME /config
-VOLUME /opt
-VOLUME /var
-
 # Add python scripts
-ADD fillbot /opt/fillbot
+ADD fillbot /app
+
+# Define working directory
+WORKDIR /app
+
+# Expose volumes
+VOLUME /app
 
 # Expose ports
 EXPOSE 5001
 
 # Define defaults command
-ENTRYPOINT /usr/bin/python3 /opt/fillbot/Fillbot_rDevelopment.py
+ENTRYPOINT /usr/bin/python3 /app/Fillbot_rDevelopment.py
