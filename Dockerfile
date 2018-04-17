@@ -18,7 +18,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && apt-get -y upgrade \
 && ln -s /usr/bin/python3.6 /usr/local/bin/python3
 
 # Install Python packages 
-RUN pip3 install -U bottle==0.12.13 GroupyAPI==0.8.1
+RUN python3.6 -m pip install -U bottle==0.12.13 GroupyAPI==0.8.1
 
 # Cleanup for a smaller image 
 RUN apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/*
