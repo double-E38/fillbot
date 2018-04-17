@@ -15,8 +15,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && apt-get -y upgrade \
 && apt-get -y install python3.6 python3.6-dev \
 && wget https://bootstrap.pypa.io/get-pip.py \
 && python3.6 get-pip.py \
-&& ln -s /usr/bin/python3.6 /usr/local/bin/python3 \
-&& ln -s /usr/local/bin/pip /usr/local/bin/pip3
+&& ln -s /usr/bin/python3.6 /usr/local/bin/python3
+# && ln -s /usr/local/bin/pip /usr/local/bin/pip3
 
 # Install Python packages 
 RUN pip3 install -U bottle==0.12.13 GroupyAPI==0.8.1
