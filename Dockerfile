@@ -8,7 +8,8 @@
 FROM ubuntu:16.04
 
 # Add Python 3.6 repository, update and upgrade. 
-RUN add-apt-repository -y ppa:jonathonf/python-3.6 \
+RUN apt-get install -y software-properties-common python-software-properties \
+&& add-apt-repository -y ppa:jonathonf/python-3.6 \
 && apt-get update \
 && apt-get -y upgrade
 
