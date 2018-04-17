@@ -7,11 +7,11 @@
 # Pull base image 
 FROM ubuntu:16.04
 
-# Make sure we're up to date! 
-RUN apt-get update && apt-get -y upgrade
+# Add Python 3.6 repository, update and upgrade. 
+RUN add-apt-repository ppa:jonathonf/python-3.6 && apt-get update && apt-get -y upgrade
 
 # Install Python3 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python3-pip
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python3.6 python3-pip
 
 # Install Python packages 
 RUN pip3 install -U bottle==0.12.13 GroupyAPI==0.8.1
@@ -32,4 +32,4 @@ VOLUME /app
 EXPOSE 5001
 
 # Define defaults command
-ENTRYPOINT /usr/bin/python3 /app/Fillbot_rDevelopment.py
+# ENTRYPOINT /usr/bin/python3 /app/Fillbot_rDevelopment.py
