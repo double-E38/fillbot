@@ -8,13 +8,11 @@
 FROM ubuntu:16.04
 
 # Add Python 3.6 repository, update and upgrade. 
-RUN apt-get install -y software-properties-common python-software-properties \
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common python-software-properties \
 && add-apt-repository -y ppa:jonathonf/python-3.6 \
 && apt-get update \
-&& apt-get -y upgrade
-
-# Install Python3.6, pip3, and set defaults
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python3.6 python3.6-dev \
+&& apt-get -y upgrade \
+&& apt-get install python3.6 python3.6-dev \
 && wget https://bootstrap.pypa.io/get-pip.py \
 && python3.6 get-pip.py \
 && ln -s /usr/bin/python3.6 /usr/local/bin/python3 \
