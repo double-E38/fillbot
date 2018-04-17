@@ -8,10 +8,16 @@
 FROM ubuntu:16.04
 
 # Add Python 3.6 repository, update and upgrade. 
-RUN add-apt-repository ppa:jonathonf/python-3.6 && apt-get update && apt-get -y upgrade
+RUN add-apt-repository -y ppa:jonathonf/python-3.6 \
+&& apt-get update \
+&& apt-get -y upgrade
 
-# Install Python3 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python3.6 python3-pip
+# Install Python3.6, pip3, and set defaults
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y python3.6 python3.6-dev \
+&& wget https://bootstrap.pypa.io/get-pip.py \
+&& python3.6 get-pip.py \
+&& ln -s /usr/bin/python3.6 /usr/local/bin/python3 \
+&& ln -s /usr/local/bin/pip /usr/local/bin/pip3
 
 # Install Python packages 
 RUN pip3 install -U bottle==0.12.13 GroupyAPI==0.8.1
