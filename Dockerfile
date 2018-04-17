@@ -9,7 +9,7 @@ FROM ubuntu:16.04
 
 # Add Python 3.6 repository, update and upgrade. 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && apt-get -y upgrade \
-&&  apt-get install -y software-properties-common python-software-properties \
+&&  apt-get install -y software-properties-common python-software-properties wget \
 && add-apt-repository -y ppa:jonathonf/python-3.6 \
 && apt-get -y update \
 && apt-get -y install python3.6 python3.6-dev \
