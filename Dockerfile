@@ -9,8 +9,7 @@ FROM ubuntu:18.04
 
 # Add Python 3.6 repository, update and upgrade.
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && apt-get -y upgrade \
-&& apt-get install -y software-properties-common python-software-properties wget \
-&& apt-get -y install python3-minimal python3-pip \
+&& apt-get install -y software-properties-common software-properties-python wget python3-minimal python3-pip
 
 # Install Python packages
 RUN python3 -m pip install -U bottle GroupyAPI
