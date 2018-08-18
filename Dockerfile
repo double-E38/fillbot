@@ -9,4 +9,4 @@ VOLUME /app
 EXPOSE 5001
 
 # Define defaults command
-CMD ["python Fillbot_rDevelopment.py"}
+CMD ["python Fillbot_rDevelopment.py"]
