@@ -30,4 +30,7 @@ VOLUME /app
 EXPOSE 5001
 
 # Define defaults command
-ENTRYPOINT /usr/bin/python3 /app/Fillbot_rDevelopment.py
+ENTRYPOINT ["python3"]
+
+# Command
+CMD ["Fillbot_rDevelopment.py"}
