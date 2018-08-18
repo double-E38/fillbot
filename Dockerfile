@@ -1,21 +1,12 @@
 #
 # Python3/bottle web server Dockerfile
 #
-# based off of https://github.com/Pablosan/bottle-py3
-#
 
 # Pull base image
-FROM ubuntu:18.04
-
-# Add Python 3.6 repository, update and upgrade.
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && apt-get -y upgrade \
-&& apt-get install -y software-properties-common wget python3-minimal python3-pip
+FROM python:3.7-alpine
 
 # Install Python packages
-RUN python3 -m pip install -U bottle GroupyAPI
-
-# Cleanup for a smaller image
-RUN apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/*
+RUN python3 -m pip install -U flask bottle GroupyAPI
 
 # Add python scripts
 ADD fillbot /app
@@ -30,7 +21,7 @@ VOLUME /app
 EXPOSE 5001
 
 # Define defaults command
-ENTRYPOINT ["python3"]
+ENTRYPOINT ["python"]
 
 # Command
 CMD ["Fillbot_rDevelopment.py"}
