@@ -3,8 +3,7 @@
 FROM python:3.7-alpine
 RUN pip install -U flask bottle GroupyAPI
 
-# ADD fillbot /app
-
+ADD fillbot /app
 WORKDIR /app
 VOLUME /app
 EXPOSE 5001
